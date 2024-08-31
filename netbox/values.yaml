@@ -12,14 +12,14 @@ redis:
   port: 6379                        # The port of the Redis service
 
 # Allowed hosts for Netbox
-allowedHosts: "netbox.wyyerd.io"
+allowedHosts: "netbox.local"
 
 # Ingress configuration
 ingress:
   enabled: true                     # Enable or disable Ingress creation
-  host: netbox.wyyerd.io            # The host/domain name for the Ingress
+  host: netbox.local                # The host/domain name for the Ingress
   tls:
-    enabled: true                   # Enable or disable TLS secret creation
+    enabled: false                  # Enable or disable TLS secret creation
     secretName: netbox-tls-secret   # Name of the TLS secret
     crt: |-
       -----BEGIN CERTIFICATE-----
