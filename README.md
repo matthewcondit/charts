@@ -1,7 +1,3 @@
-Here's a good README file that you can use for your Helm repository:
-
----
-
 # Helm Repository for Custom Applications
 
 Welcome to my Helm repository! This repository contains Helm charts for various applications where I couldn't find reliable sources elsewhere. These charts are free to use for anyone who needs them, and contributions are always welcome.
