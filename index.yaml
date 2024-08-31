@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  netbox:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2024-08-31T07:32:06.915837-05:00"
+    description: A Helm chart for Kubernetes
+    digest: e74d4e63f191b195a493ba9042d14d2cf59746d91568e61c70c96caddaa127ac
+    name: netbox
+    type: application
+    urls:
+    - netbox-0.1.0.tgz
+    version: 0.1.0
+generated: "2024-08-31T07:32:06.915576-05:00"

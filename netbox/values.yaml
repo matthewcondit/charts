@@ -1,0 +1,37 @@
+# Database configuration
+db:
+  host: netbox-db             # The hostname of the database service
+  port: 5432                  # The port of the database service
+  name: netbox                # The name of the database
+  user: netbox                # The database user
+  password: netboxpassword    # This will be stored in a secret, not here
+
+# Redis configuration
+redis:
+  host: netbox-redis                # The hostname of the Redis service
+  port: 6379                        # The port of the Redis service
+
+# Allowed hosts for Netbox
+allowedHosts: "netbox.wyyerd.io"
+
+# Ingress configuration
+ingress:
+  enabled: true                     # Enable or disable Ingress creation
+  host: netbox.wyyerd.io            # The host/domain name for the Ingress
+  tls:
+    enabled: true                   # Enable or disable TLS secret creation
+    secretName: netbox-tls-secret   # Name of the TLS secret
+    crt: |-
+      -----BEGIN CERTIFICATE-----
+      ... your certificate ...
+      -----END CERTIFICATE-----
+    key: |-
+      -----BEGIN PRIVATE KEY-----
+      ... your private key ...
+      -----END PRIVATE KEY-----
+      
+# Image configuration
+image:
+  repository: netboxcommunity/netbox
+  tag: latest
+  pullPolicy: IfNotPresent
