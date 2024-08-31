@@ -39,3 +39,10 @@ spec:
           value: "{{ .Values.redis.port }}"
         - name: ALLOWED_HOSTS
           value: "{{ .Values.allowedHosts }}"
+        volumeMounts:
+        - name: netbox-media
+          mountPath: /opt/netbox/netbox/media
+      volumes:
+      - name: netbox-media
+        persistentVolumeClaim:
+          claimName: netbox-media-pvc

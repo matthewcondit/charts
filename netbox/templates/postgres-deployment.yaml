@@ -29,3 +29,10 @@ spec:
               key: password
         ports:
         - containerPort: 5432
+        volumeMounts:
+        - name: netbox-postgresql-storage
+          mountPath: /var/lib/postgresql/data
+      volumes:
+      - name: netbox-postgresql-storage
+        persistentVolumeClaim:
+          claimName: netbox-postgresql-pvc

@@ -29,7 +29,16 @@ ingress:
       -----BEGIN PRIVATE KEY-----
       ... your private key ...
       -----END PRIVATE KEY-----
-      
+
+# Persistent Volume configuration
+persistence:
+  enabled: true                 # Enable or disable persistence
+  storageClass: ""              # Specify a storageClass if needed, otherwise leave it empty
+  accessModes:
+    - ReadWriteOnce             # Access mode for the PVC
+  size: 10Gi                    # Size of the PVC
+  annotations: {}               # Additional annotations for the PVC if needed
+
 # Image configuration
 image:
   repository: netboxcommunity/netbox
