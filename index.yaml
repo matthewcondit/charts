@@ -3,7 +3,17 @@ entries:
   foundry-vtt:
   - apiVersion: v2
     appVersion: "12.331"
-    created: "2024-09-11T07:56:34.006435-05:00"
+    created: "2024-09-11T08:16:54.462611-05:00"
+    description: Customized Foundry VTT Helm chart
+    digest: 3f388c97a0a751f0700469d9c147ddcc62fbc48a00e319fa89c68480d6e04146
+    name: foundry-vtt
+    type: application
+    urls:
+    - https://github.com/matthewcondit/charts/foundry-vtt-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: "12.331"
+    created: "2024-09-11T08:16:54.462442-05:00"
     description: Customized Foundry VTT Helm chart
     digest: 1fc388d7728df88004f7d5efb308ef0bdcdf4bb5c2eab8e51f2f912befd12eaf
     name: foundry-vtt
@@ -13,7 +23,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: "12.331"
-    created: "2024-09-11T07:56:34.00629-05:00"
+    created: "2024-09-11T08:16:54.462279-05:00"
     description: A Helm chart for Kubernetes
     digest: 01e412fd4989d4e46108c8e9bab85e50b73d30e3ecc3b35a0f6cb30fafd4e848
     name: foundry-vtt
@@ -24,7 +34,7 @@ entries:
   netbox:
   - apiVersion: v2
     appVersion: 4.0.10
-    created: "2024-09-11T07:56:34.007344-05:00"
+    created: "2024-09-11T08:16:54.463599-05:00"
     description: Customized Netbox Helm Chart
     digest: 511171355555d49b6548663fab7e5b17c85bbddc459dbfab96e45bcdbf98480e
     name: netbox
@@ -34,7 +44,7 @@ entries:
     version: 0.1.4
   - apiVersion: v2
     appVersion: 4.0.10
-    created: "2024-09-11T07:56:34.007133-05:00"
+    created: "2024-09-11T08:16:54.463361-05:00"
     description: Customized Netbox Helm Chart
     digest: 3fb728916b595ce22dd6fec53aa148cb4670f8a500f88a7733f2ffc5105a8d4a
     name: netbox
@@ -44,7 +54,7 @@ entries:
     version: 0.1.3
   - apiVersion: v2
     appVersion: 4.0.10
-    created: "2024-09-11T07:56:34.006953-05:00"
+    created: "2024-09-11T08:16:54.46316-05:00"
     description: Customized Netbox Helm Chart
     digest: 5b1d511e9a16e389b12d82a6dc80c15cd996eff2edcdc1aa59805c5cff13768f
     name: netbox
@@ -54,7 +64,7 @@ entries:
     version: 0.1.2
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-09-11T07:56:34.006768-05:00"
+    created: "2024-09-11T08:16:54.462961-05:00"
     description: Customized Netbox Helm Chart
     digest: d13148ce20aba0a40864e4b3989c62428908583210660a532870863653112164
     name: netbox
@@ -64,7 +74,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-09-11T07:56:34.006577-05:00"
+    created: "2024-09-11T08:16:54.462784-05:00"
     description: A Helm chart for Kubernetes
     digest: e74d4e63f191b195a493ba9042d14d2cf59746d91568e61c70c96caddaa127ac
     name: netbox
@@ -72,4 +82,4 @@ entries:
     urls:
     - https://github.com/matthewcondit/charts/netbox-0.1.0.tgz
     version: 0.1.0
-generated: "2024-09-11T07:56:34.006031-05:00"
+generated: "2024-09-11T08:16:54.46203-05:00"
