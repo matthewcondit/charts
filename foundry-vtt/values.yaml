@@ -19,3 +19,9 @@ persistence:
   storageClass: "longhorn"
   size: 30Gi
   cacheSize: 5Gi  # Cache volume size
+
+ddbProxy:
+  enabled: true  # Toggle whether the ddb-proxy container is deployed
+  image: "ddb-proxy"  # Replace with the correct image
+  tag: "latest"
+  port: 3000  # Port used by ddb-proxy

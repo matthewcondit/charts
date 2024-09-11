@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ddb-proxy
+  labels:
+    app: ddb-proxy
+spec:
+  replicas: 1  # Single pod for ddb-proxy
+  selector:
+    matchLabels:
+      app: ddb-proxy
+  template:
+    metadata:
+      labels:
+        app: ddb-proxy
+    spec:
+      containers:
+        - name: ddb-proxy
+          image: "{{ .Values.ddbProxy.image }}:{{ .Values.ddbProxy.tag }}"
+          ports:
+            - containerPort: {{ .Values.ddbProxy.port }}
