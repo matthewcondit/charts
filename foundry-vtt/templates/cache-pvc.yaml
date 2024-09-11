@@ -4,7 +4,7 @@ metadata:
   name: foundry-vtt-cache-pvc
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   resources:
     requests:
       storage: "{{ .Values.persistence.cacheSize }}"
