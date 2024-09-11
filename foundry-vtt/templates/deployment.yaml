@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: foundry-vtt
+spec:
+  selector:
+    matchLabels:
+      app: foundry-vtt
+  template:
+    metadata:
+      labels:
+        app: foundry-vtt
+    spec:
+      containers:
+        - name: foundry-vtt
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          ports:
+            - containerPort: 30000
+          volumeMounts:
+            - mountPath: /data
+              name: foundry-data
+          env:
+            - name: FOUNDRY_ADMIN_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: foundry-vtt-secrets
+                  key: admin-key
+            - name: FOUNDRY_USERNAME
+              value: "{{ .Values.foundry.username }}"
+            - name: FOUNDRY_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: foundry-vtt-secrets
+                  key: password
+            - name: FOUNDRY_HOSTNAME
+              value: "{{ .Values.foundry.hostname }}"
+            - name: CONTAINER_CACHE
+              value: "{{ if .Values.foundry.cacheEnabled }}{{ .Values.foundry.cachePath }}{{ else }}""{{ end }}"
+      volumes:
+        - name: foundry-data
+          persistentVolumeClaim:
+            claimName: foundry-vtt-pvc
+        - name: foundry-cache
+          persistentVolumeClaim:
+            claimName: foundry-vtt-cache-pvc

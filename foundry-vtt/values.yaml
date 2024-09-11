@@ -1,0 +1,21 @@
+replicaCount: 1
+
+image:
+  repository: felddy/foundryvtt
+  pullPolicy: IfNotPresent
+  tag: "latest"
+
+foundry:
+  username: "admin"
+  adminKey: "your-admin-key"
+  password: "your-password"
+  hostname: "your-hostname"
+  cacheEnabled: true  # Set to false if you don't want cache
+  cacheSize: 5Gi      # Define the cache volume size
+  cachePath: "/data/cache"  # Cache path within the persistent volume
+
+persistence:
+  enabled: true
+  storageClass: "longhorn"
+  size: 30Gi
+  cacheSize: 5Gi  # Cache volume size
