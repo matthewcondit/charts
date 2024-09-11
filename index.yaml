@@ -3,63 +3,63 @@ entries:
   foundry-vtt:
   - apiVersion: v2
     appVersion: "12.331"
-    created: "2024-09-11T07:22:13.910457-05:00"
+    created: "2024-09-11T07:26:54.048254-05:00"
     description: A Helm chart for Kubernetes
     digest: 598cb5d3761724af9ac545c2f4c4013c87a4b4d49d3cb80f52a70780764d0ced
     name: foundry-vtt
     type: application
     urls:
-    - https://raw.githubusercontent.com/matthewcondit/charts/main/foundry-vtt-0.1.0.tgz
+    - https://raw.githubusercontent.com/matthewcondit/charts/foundry-vtt-0.1.0.tgz
     version: 0.1.0
   netbox:
   - apiVersion: v2
     appVersion: 4.0.10
-    created: "2024-09-11T07:22:13.911378-05:00"
+    created: "2024-09-11T07:26:54.049381-05:00"
     description: Customized Netbox Helm Chart
     digest: 511171355555d49b6548663fab7e5b17c85bbddc459dbfab96e45bcdbf98480e
     name: netbox
     type: application
     urls:
-    - https://raw.githubusercontent.com/matthewcondit/charts/main/netbox-0.1.4.tgz
+    - https://raw.githubusercontent.com/matthewcondit/charts/netbox-0.1.4.tgz
     version: 0.1.4
   - apiVersion: v2
     appVersion: 4.0.10
-    created: "2024-09-11T07:22:13.911163-05:00"
+    created: "2024-09-11T07:26:54.049104-05:00"
     description: Customized Netbox Helm Chart
     digest: 3fb728916b595ce22dd6fec53aa148cb4670f8a500f88a7733f2ffc5105a8d4a
     name: netbox
     type: application
     urls:
-    - https://raw.githubusercontent.com/matthewcondit/charts/main/netbox-0.1.3.tgz
+    - https://raw.githubusercontent.com/matthewcondit/charts/netbox-0.1.3.tgz
     version: 0.1.3
   - apiVersion: v2
     appVersion: 4.0.10
-    created: "2024-09-11T07:22:13.91098-05:00"
+    created: "2024-09-11T07:26:54.048813-05:00"
     description: Customized Netbox Helm Chart
     digest: 5b1d511e9a16e389b12d82a6dc80c15cd996eff2edcdc1aa59805c5cff13768f
     name: netbox
     type: application
     urls:
-    - https://raw.githubusercontent.com/matthewcondit/charts/main/netbox-0.1.2.tgz
+    - https://raw.githubusercontent.com/matthewcondit/charts/netbox-0.1.2.tgz
     version: 0.1.2
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-09-11T07:22:13.910792-05:00"
+    created: "2024-09-11T07:26:54.048612-05:00"
     description: Customized Netbox Helm Chart
     digest: d13148ce20aba0a40864e4b3989c62428908583210660a532870863653112164
     name: netbox
     type: application
     urls:
-    - https://raw.githubusercontent.com/matthewcondit/charts/main/netbox-0.1.1.tgz
+    - https://raw.githubusercontent.com/matthewcondit/charts/netbox-0.1.1.tgz
     version: 0.1.1
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-09-11T07:22:13.910615-05:00"
+    created: "2024-09-11T07:26:54.048432-05:00"
     description: A Helm chart for Kubernetes
     digest: e74d4e63f191b195a493ba9042d14d2cf59746d91568e61c70c96caddaa127ac
     name: netbox
     type: application
     urls:
-    - https://raw.githubusercontent.com/matthewcondit/charts/main/netbox-0.1.0.tgz
+    - https://raw.githubusercontent.com/matthewcondit/charts/netbox-0.1.0.tgz
     version: 0.1.0
-generated: "2024-09-11T07:22:13.910204-05:00"
+generated: "2024-09-11T07:26:54.047984-05:00"
