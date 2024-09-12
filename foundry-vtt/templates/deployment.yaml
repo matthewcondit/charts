@@ -39,6 +39,10 @@ spec:
               value: "{{ .Values.foundry.hostname }}"
             - name: CONTAINER_CACHE
               value: "{{ .Values.foundry.cachePath }}"
+            - name: FOUNDRY_TELEMETRY
+              value: "{{ .Values.foundry.telemetry }}"
+            - name: FOUNDRY_CSS_THEME
+              value: "{{ .Values.foundry.cssTheme }}"
       volumes:
         - name: foundry-data
           persistentVolumeClaim:

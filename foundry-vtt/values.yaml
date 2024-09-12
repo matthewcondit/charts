@@ -10,6 +10,8 @@ foundry:
   adminKey: "your-admin-key"
   password: "your-password"
   hostname: "your-hostname"
+  cssTheme: "fantasy" # Options are foundry, fantasy, or scifi
+  telemetry: false
   cacheEnabled: true  # Set to false if you don't want cache
   cacheSize: 5Gi      # Define the cache volume size
   cachePath: "/data/cache"  # Cache path within the persistent volume
