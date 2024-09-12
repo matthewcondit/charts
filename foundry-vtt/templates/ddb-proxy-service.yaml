@@ -6,11 +6,12 @@ metadata:
   labels:
     app: ddb-proxy
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     app: ddb-proxy
   ports:
     - protocol: TCP
-      port: {{ .Values.ddbProxy.port }}  # Port for the service
-      targetPort: {{ .Values.ddbProxy.port }}  # Port on the ddb-proxy container
+      port: {{ .Values.ddbProxy.port }}  # The port that the service will expose
+      targetPort: {{ .Values.ddbProxy.port }}  # The port on the ddb-proxy container
+      nodePort: {{ .Values.ddbProxy.nodePort | default 32000 }}  # NodePort, you can specify a range or allow dynamic assignment
 {{- end }}

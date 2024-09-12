@@ -27,3 +27,4 @@ ddbProxy:
   image: "ghcr.io/mrprimate/ddb-proxy"  # Replace with the correct image
   tag: "latest"
   port: 3000  # Port used by ddb-proxy
+  nodePort: 32000  # NodePort for ddb-proxy service
