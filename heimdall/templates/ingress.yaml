@@ -15,7 +15,7 @@ spec:
             pathType: {{ .pathType }}
             backend:
               service:
-                name: {{ include "heimdall.fullname" . }}
+                name: {{ $.Release.Name }}
                 port:
                   number: {{ $.Values.service.port }}
           {{- end }}
