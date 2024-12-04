@@ -3,7 +3,7 @@ replicaCount: 1
 image:
   repository: linuxserver/heimdall
   pullPolicy: IfNotPresent
-  tag: "latest"
+  tag: "2.6.3"
 
 service:
   type: ClusterIP
