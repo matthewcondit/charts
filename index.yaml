@@ -3,7 +3,7 @@ entries:
   foundry-vtt:
   - apiVersion: v2
     appVersion: "12.331"
-    created: "2024-12-05T12:07:27.909616-06:00"
+    created: "2024-12-05T13:00:41.787587-06:00"
     description: Customized Foundry VTT Helm chart
     digest: e847cb407a0dea8bf8f33c8030c29358578b988692573598bdc63dfc3fb876d5
     name: foundry-vtt
@@ -13,7 +13,7 @@ entries:
     version: 0.1.6
   - apiVersion: v2
     appVersion: "12.331"
-    created: "2024-12-05T12:07:27.909437-06:00"
+    created: "2024-12-05T13:00:41.787381-06:00"
     description: Customized Foundry VTT Helm chart
     digest: 2b72c43960746139910b6bb27ef6b47d2554455e9fb0cb44879ab00354357dff
     name: foundry-vtt
@@ -23,7 +23,7 @@ entries:
     version: 0.1.5
   - apiVersion: v2
     appVersion: "12.331"
-    created: "2024-12-05T12:07:27.909274-06:00"
+    created: "2024-12-05T13:00:41.787155-06:00"
     description: Customized Foundry VTT Helm chart
     digest: b254d726d70a7aace1cee131978009aca951ee6a02b93e794bb5ee1bf41de37a
     name: foundry-vtt
@@ -33,7 +33,7 @@ entries:
     version: 0.1.4
   - apiVersion: v2
     appVersion: "12.331"
-    created: "2024-12-05T12:07:27.909107-06:00"
+    created: "2024-12-05T13:00:41.786936-06:00"
     description: Customized Foundry VTT Helm chart
     digest: b31ee87d822b6b916b7a704d3b76b5b644484833adda58d372529e2b871628c9
     name: foundry-vtt
@@ -43,7 +43,7 @@ entries:
     version: 0.1.3
   - apiVersion: v2
     appVersion: "12.331"
-    created: "2024-12-05T12:07:27.908934-06:00"
+    created: "2024-12-05T13:00:41.786695-06:00"
     description: Customized Foundry VTT Helm chart
     digest: 581ea99ef3f6503c7709a5e8913651f3d04abdbdf12262b84fd42577b18e9dba
     name: foundry-vtt
@@ -53,7 +53,7 @@ entries:
     version: 0.1.2
   - apiVersion: v2
     appVersion: "12.331"
-    created: "2024-12-05T12:07:27.908773-06:00"
+    created: "2024-12-05T13:00:41.786168-06:00"
     description: Customized Foundry VTT Helm chart
     digest: 1fc388d7728df88004f7d5efb308ef0bdcdf4bb5c2eab8e51f2f912befd12eaf
     name: foundry-vtt
@@ -63,7 +63,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: "12.331"
-    created: "2024-12-05T12:07:27.908615-06:00"
+    created: "2024-12-05T13:00:41.78573-06:00"
     description: A Helm chart for Kubernetes
     digest: 01e412fd4989d4e46108c8e9bab85e50b73d30e3ecc3b35a0f6cb30fafd4e848
     name: foundry-vtt
@@ -74,7 +74,7 @@ entries:
   heimdall:
   - apiVersion: v2
     appVersion: 2.6.3
-    created: "2024-12-05T12:07:27.911685-06:00"
+    created: "2024-12-05T13:00:41.789111-06:00"
     description: A Helm chart for Kubernetes
     digest: 6bd1aedc2c7c4a6ae1a9552c9ab15b10cd5ca2d1ef71772d003d8cf8b41df342
     name: heimdall
@@ -84,7 +84,7 @@ entries:
     version: 0.1.7
   - apiVersion: v2
     appVersion: 2.6.3
-    created: "2024-12-05T12:07:27.911473-06:00"
+    created: "2024-12-05T13:00:41.788903-06:00"
     description: A Helm chart for Kubernetes
     digest: e2ec08e023e90f7e0a68a5c4e9b79ce8aa89d656359ae318231863d6302615aa
     name: heimdall
@@ -94,7 +94,7 @@ entries:
     version: 0.1.6
   - apiVersion: v2
     appVersion: 2.6.3
-    created: "2024-12-05T12:07:27.911264-06:00"
+    created: "2024-12-05T13:00:41.788691-06:00"
     description: A Helm chart for Kubernetes
     digest: a82301cad26cbebab0d8c9b018c17379ef0cc292747424edb3f0868bfcba8f99
     name: heimdall
@@ -104,7 +104,7 @@ entries:
     version: 0.1.5
   - apiVersion: v2
     appVersion: 2.6.3
-    created: "2024-12-05T12:07:27.911052-06:00"
+    created: "2024-12-05T13:00:41.788493-06:00"
     description: A Helm chart for Kubernetes
     digest: 405128339c85c63a4fe13be8a309c3dd0204d8ed00faa5f02d4fd0b18dd4f34c
     name: heimdall
@@ -114,7 +114,7 @@ entries:
     version: 0.1.4
   - apiVersion: v2
     appVersion: 2.6.3
-    created: "2024-12-05T12:07:27.910849-06:00"
+    created: "2024-12-05T13:00:41.788323-06:00"
     description: A Helm chart for Kubernetes
     digest: 646e23cfa2f6af9b7fa286393bae196d268293524a6cc069b0ff29acf9956c72
     name: heimdall
@@ -124,7 +124,7 @@ entries:
     version: 0.1.3
   - apiVersion: v2
     appVersion: 2.6.3
-    created: "2024-12-05T12:07:27.910388-06:00"
+    created: "2024-12-05T13:00:41.788147-06:00"
     description: A Helm chart for Kubernetes
     digest: f52501f5dd9a1de092e08903e2a5c1d1a2ce58cc73fe7eb2a3df1d23547a9b52
     name: heimdall
@@ -134,7 +134,7 @@ entries:
     version: 0.1.2
   - apiVersion: v2
     appVersion: 2.6.3
-    created: "2024-12-05T12:07:27.91-06:00"
+    created: "2024-12-05T13:00:41.787968-06:00"
     description: A Helm chart for Kubernetes
     digest: d3630f695ac8803e32b700de7082d464ccc91488d7f87472383e84f628866fa0
     name: heimdall
@@ -144,7 +144,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-12-05T12:07:27.909808-06:00"
+    created: "2024-12-05T13:00:41.78778-06:00"
     description: A Helm chart for Kubernetes
     digest: dc186d2ae16eee1a0869fc6b15858a29e169e9fe5d075a0c89d2830f84cfda2a
     name: heimdall
@@ -155,7 +155,17 @@ entries:
   librenms:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-12-05T12:07:27.912642-06:00"
+    created: "2024-12-05T13:00:41.791076-06:00"
+    description: A Helm chart for Kubernetes
+    digest: 06ac5b11b1695b2541cfa57582ce7667c4a946a73e176b57f01688c65bcdd8fc
+    name: librenms
+    type: application
+    urls:
+    - https://github.com/matthewcondit/charts/librenms-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2024-12-05T13:00:41.790001-06:00"
     description: A Helm chart for Kubernetes
     digest: 047141fb250ca340c5224cce62dc5c52e7570a0e9098ea4e89d29db13ff10152
     name: librenms
@@ -165,7 +175,7 @@ entries:
     version: 0.1.3
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-12-05T12:07:27.912439-06:00"
+    created: "2024-12-05T13:00:41.789806-06:00"
     description: A Helm chart for Kubernetes
     digest: 607edf41961d3742252baac71c2e80279a20ea14d0b7fe25dd6ea76f2cccf959
     name: librenms
@@ -175,7 +185,7 @@ entries:
     version: 0.1.2
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-12-05T12:07:27.91221-06:00"
+    created: "2024-12-05T13:00:41.789596-06:00"
     description: A Helm chart for Kubernetes
     digest: 3055bb384b304eeca8f9178fa27e98c2877bdedbac89ea7e1793a3f3b76087ac
     name: librenms
@@ -185,7 +195,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-12-05T12:07:27.911948-06:00"
+    created: "2024-12-05T13:00:41.78936-06:00"
     description: A Helm chart for Kubernetes
     digest: e18207835975340dac306022c241b7907af27d0b6730d58b5b853c93645862bb
     name: librenms
@@ -196,7 +206,7 @@ entries:
   netbox:
   - apiVersion: v2
     appVersion: 4.0.10
-    created: "2024-12-05T12:07:27.913495-06:00"
+    created: "2024-12-05T13:00:41.793413-06:00"
     description: Customized Netbox Helm Chart
     digest: 511171355555d49b6548663fab7e5b17c85bbddc459dbfab96e45bcdbf98480e
     name: netbox
@@ -206,7 +216,7 @@ entries:
     version: 0.1.4
   - apiVersion: v2
     appVersion: 4.0.10
-    created: "2024-12-05T12:07:27.913293-06:00"
+    created: "2024-12-05T13:00:41.793078-06:00"
     description: Customized Netbox Helm Chart
     digest: 3fb728916b595ce22dd6fec53aa148cb4670f8a500f88a7733f2ffc5105a8d4a
     name: netbox
@@ -216,7 +226,7 @@ entries:
     version: 0.1.3
   - apiVersion: v2
     appVersion: 4.0.10
-    created: "2024-12-05T12:07:27.913114-06:00"
+    created: "2024-12-05T13:00:41.792837-06:00"
     description: Customized Netbox Helm Chart
     digest: 5b1d511e9a16e389b12d82a6dc80c15cd996eff2edcdc1aa59805c5cff13768f
     name: netbox
@@ -226,7 +236,7 @@ entries:
     version: 0.1.2
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-12-05T12:07:27.912945-06:00"
+    created: "2024-12-05T13:00:41.791705-06:00"
     description: Customized Netbox Helm Chart
     digest: d13148ce20aba0a40864e4b3989c62428908583210660a532870863653112164
     name: netbox
@@ -236,7 +246,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-12-05T12:07:27.912784-06:00"
+    created: "2024-12-05T13:00:41.791444-06:00"
     description: A Helm chart for Kubernetes
     digest: e74d4e63f191b195a493ba9042d14d2cf59746d91568e61c70c96caddaa127ac
     name: netbox
@@ -247,7 +257,7 @@ entries:
   test-app:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-12-05T12:07:27.913755-06:00"
+    created: "2024-12-05T13:00:41.794175-06:00"
     description: A Helm chart for Kubernetes
     digest: 934cfd40481983f2eb5172985f5666ba75868aa6baab6a36722c36041b0aaed6
     name: test-app
@@ -255,4 +265,4 @@ entries:
     urls:
     - https://github.com/matthewcondit/charts/test-app-0.1.0.tgz
     version: 0.1.0
-generated: "2024-12-05T12:07:27.908364-06:00"
+generated: "2024-12-05T13:00:41.785189-06:00"

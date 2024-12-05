@@ -5,11 +5,15 @@ namespace: librenms
 librenms:
   image: librenms/librenms:latest
   replicaCount: 1
-  servicePort: 80
+  service:
+    type: ClusterIP
+    port: 80
   persistence:
     enabled: true
-    size: 10Gi
+    size: 100Gi
     storageClass: longhorn
+    existingClaim: ""
+    retainOnDelete: true
 
 # Database (MariaDB)
 database:
@@ -59,7 +63,21 @@ oxidized:
 ingress:
   enabled: true
   hosts:
-    librenms: librenms.example.com
-    graylog: graylog.example.com
-    oxidized: oxidized.example.com
+    - name: librenms.example.com
+      serviceName: librenms
+      servicePort: 80
+    #- name: graylog.example.com
+    #  serviceName: graylog
+    #  servicePort: 9000
+    #- name: oxidized.example.com
+    #  serviceName: oxidized
+    #  servicePort: 8888
   tlsSecret: librenms-tls
+  cert: |-
+    -----BEGIN CERTIFICATE-----
+    YOUR_CERTIFICATE_CONTENT
+    -----END CERTIFICATE-----
+  key: |-
+    -----BEGIN PRIVATE KEY-----
+    YOUR_PRIVATE_KEY_CONTENT
+    -----END PRIVATE KEY-----
