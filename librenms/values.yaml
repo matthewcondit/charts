@@ -1,0 +1,65 @@
+# General Configuration
+namespace: librenms
+
+# LibreNMS
+librenms:
+  image: librenms/librenms:latest
+  replicaCount: 1
+  servicePort: 80
+  persistence:
+    enabled: true
+    size: 10Gi
+    storageClass: longhorn
+
+# Database (MariaDB)
+database:
+  image: mariadb:10.5
+  replicaCount: 1
+  rootPassword: "secure_root_password"
+  user: "librenms"
+  password: "secure_librenms_password"
+  name: "librenms"
+  persistence:
+    enabled: true
+    size: 100Gi
+    storageClass: longhorn
+    existingClaim: ""  # Specify the name of an existing PVC to reuse, leave blank to create a new one
+    retainOnDelete: true  # Set to true to retain PVC even if the Helm release is deleted
+  service:
+    type: ClusterIP # Internal access only
+    port: 3306
+
+# Pollers
+pollers:
+  enabled: true
+  replicaCount: 2
+  image: librenms/librenms:latest
+
+# Graylog
+graylog:
+  image: graylog/graylog:latest
+  replicaCount: 1
+  servicePort: 9000
+  persistence:
+    enabled: true
+    size: 20Gi
+    storageClass: longhorn
+
+# Oxidized
+oxidized:
+  image: oxidized/oxidized:latest
+  replicaCount: 1
+  servicePort: 8888
+  persistence:
+    enabled: true
+    size: 5Gi
+    storageClass: longhorn
+
+# Ingress
+ingress:
+  enabled: true
+  hosts:
+    librenms: librenms.example.com
+    graylog: graylog.example.com
+    oxidized: oxidized.example.com
+  tlsSecret: librenms-tls

@@ -1,0 +1,22 @@
+{{- if and .Values.database.persistence.enabled (eq .Values.database.persistence.existingClaim "") }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mariadb-data
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: mariadb
+  annotations:
+    {{- if .Values.database.persistence.retainOnDelete }}
+    helm.sh/resource-policy: keep
+    {{- end }}
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: {{ .Values.database.persistence.size }}
+  {{- if .Values.database.persistence.storageClass }}
+  storageClassName: {{ .Values.database.persistence.storageClass }}
+  {{- end }}
+{{- end }}
