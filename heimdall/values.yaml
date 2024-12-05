@@ -42,5 +42,6 @@ persistence:
   accessMode: ReadWriteOnce
   size: 1Gi
   storageClass: ""
-  existingClaim: ""
   mountPath: /config
+  existingClaim: ""  # Specify the name of an existing PVC to reuse, leave blank to create a new one
+  retainOnDelete: true  # Set to true to retain PVC even if the Helm release is deleted

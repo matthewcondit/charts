@@ -5,6 +5,8 @@ metadata:
   name: {{ include "heimdall.fullname" . }}
   labels:
     app: {{ .Chart.Name }}
+  annotations:
+    helm.sh/resource-policy: {{ if .Values.persistence.retainOnDelete }}keep{{ end }}
 spec:
   accessModes:
     - {{ .Values.persistence.accessMode }}
