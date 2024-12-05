@@ -36,3 +36,11 @@ ingress:
     - secretName: heimdall-tls
       hosts:
         - heimdall.example.com
+
+persistence:
+  enabled: true
+  accessMode: ReadWriteOnce
+  size: 1Gi
+  storageClass: ""
+  existingClaim: ""
+  mountPath: /config
