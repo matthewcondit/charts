@@ -51,7 +51,7 @@ spec:
               value: "{{ .Values.librenms.env.PGID }}"
             - name: TZ
               value: "{{ .Values.librenms.env.TZ }}"
-            - name: ServerName
+            - name: server_name
               value: "{{ .Values.librenms.env.SERVER_NAME }}"
             - name: SESSION_SECURE_COOKIE
               value: "{{ .Values.librenms.env.SESSION_SECURE_COOKIE }}"

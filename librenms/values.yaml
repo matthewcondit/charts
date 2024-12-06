@@ -26,7 +26,7 @@ librenms:
     TZ: UTC
     SERVER_NAME: nms.example.com
     CACHE_DRIVER: redis
-    SESSION_SECURE_COOKIE: "true"
+    SESSION_SECURE_COOKIE: true
 
 
 # Database (MariaDB)
