@@ -51,7 +51,7 @@ spec:
             - name: LIBRENMS_WEATHERMAP
               value: "{{ .Values.librenms.env.LIBRENMS_WEATHERMAP }}"
             - name: SIDECAR_DISPATCHER
-              value: 1
+              value: "1"
             - name: DISPATCHER_NODE_ID
               value: "{{ .Values.dispatcher.env.DISPATCHER_NODE_ID }}"
           ports:
