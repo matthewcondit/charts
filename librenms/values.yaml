@@ -24,10 +24,13 @@ librenms:
     PUID: 1000
     PGID: 1000
     TZ: UTC
-    SERVER_NAME: nms.example.com
+    LIBRENMS_BASE_URL: https://nms.example.com/
+    LIBRENMS_SNMP_COMMUNITY: librenmsdocker
+    LIBRENMS_WEATHERMAP: true
     CACHE_DRIVER: redis
+    SESSION_DRIVER: redis
+    REDIS_HOST: redis
     SESSION_SECURE_COOKIE: true
-
 
 # Database (MariaDB)
 database:

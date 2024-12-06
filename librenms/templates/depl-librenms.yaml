@@ -15,18 +15,18 @@ spec:
       labels:
         app: librenms
     spec:
-      initContainers:
-        - name: init-directories
-          image: busybox:latest
-          command:
-            - sh
-            - -c
-            - |
-              mkdir -p /data/cache /data/rrd
-              chown -R 1000:1000 /data
-          volumeMounts:
-            - name: librenms-data
-              mountPath: /data
+      # initContainers:
+      #   - name: init-directories
+      #     image: busybox:latest
+      #     command:
+      #       - sh
+      #       - -c
+      #       - |
+      #         mkdir -p /data/cache /data/rrd
+      #         chown -R 1000:1000 /data
+      #     volumeMounts:
+      #       - name: librenms-data
+      #         mountPath: /data
       containers:
         - name: librenms
           image: "{{ .Values.librenms.image }}"
@@ -51,12 +51,20 @@ spec:
               value: "{{ .Values.librenms.env.PGID }}"
             - name: TZ
               value: "{{ .Values.librenms.env.TZ }}"
-            - name: server_name
-              value: "{{ .Values.librenms.env.SERVER_NAME }}"
+            - name: LIBRENMS_BASE_URL
+              value: "{{ .Values.librenms.env.LIBRENMS_BASE_URL }}"
             - name: SESSION_SECURE_COOKIE
               value: "{{ .Values.librenms.env.SESSION_SECURE_COOKIE }}"
             - name: CACHE_DRIVER
               value: "{{ .Values.librenms.env.CACHE_DRIVER }}"
+            - name: SESSION_DRIVER
+              value: "{{ .Values.librenms.env.SESSION_DRIVER }}"
+            - name: REDIS_HOST
+              value: "{{ .Values.librenms.env.REDIS_HOST }}"
+            - name: LIBRENMS_SNMP_COMMUNITY
+              value: "{{ .Values.librenms.env.LIBRENMS_SNMP_COMMUNITY }}"
+            - name: LIBRENMS_WEATHERMAP
+              value: "{{ .Values.librenms.env.LIBRENMS_WEATHERMAP }}"
           volumeMounts:
             - name: librenms-data
               mountPath: /data
