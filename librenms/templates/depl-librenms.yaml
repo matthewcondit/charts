@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: librenms
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: librenms
+spec:
+  replicas: {{ .Values.librenms.replicaCount }}
+  selector:
+    matchLabels:
+      app: librenms
+  template:
+    metadata:
+      labels:
+        app: librenms
+    spec:
+      initContainers:
+        - name: init-directories
+          image: busybox:latest
+          command:
+            - sh
+            - -c
+            - |
+              mkdir -p /data/.env /data/cache /data/rrd
+              chown -R 1000:1000 /data
+          volumeMounts:
+            - name: librenms-data
+              mountPath: /data
+      containers:
+        - name: librenms
+          image: "{{ .Values.librenms.image }}"
+          ports:
+            - containerPort: {{ .Values.librenms.service.port }}
+          env:
+            - name: DB_HOST
+              value: {{ .Values.librenms.env.DB_HOST }}
+            - name: DB_NAME
+              value: {{ .Values.librenms.env.DB_NAME }}
+            - name: DB_USER
+              value: {{ .Values.librenms.env.DB_USER }}
+            - name: DB_PASSWORD
+              value: {{ .Values.librenms.env.DB_PASSWORD }}
+            - name: REDIS_HOST
+              value: {{ .Values.librenms.env.REDIS_HOST }}
+            - name: REDIS_PORT
+              value: "{{ .Values.librenms.env.REDIS_PORT }}"
+            - name: PUID
+              value: "{{ .Values.librenms.env.PUID }}"
+            - name: PGID
+              value: "{{ .Values.librenms.env.PGID }}"
+            - name: TZ
+              value: "{{ .Values.librenms.env.TZ }}"
+          volumeMounts:
+            - name: librenms-data
+              mountPath: /data
+      volumes:
+        - name: librenms-data
+          persistentVolumeClaim:
+            claimName: {{ if .Values.librenms.persistence.existingClaim }}{{ .Values.librenms.persistence.existingClaim }}{{ else }}librenms-data{{ end }}

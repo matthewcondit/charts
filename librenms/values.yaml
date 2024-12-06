@@ -2,6 +2,29 @@
 namespace: librenms
 
 # LibreNMS
+librenms:
+  image: librenms/librenms:latest
+  replicaCount: 1
+  service:
+    type: ClusterIP
+    port: 80
+  persistence:
+    enabled: true
+    size: 100Gi
+    storageClass: longhorn
+    existingClaim: ""  # Specify the name of an existing PVC to reuse, leave blank to create a new one
+    retainOnDelete: true
+  env:
+    DB_HOST: mariadb
+    DB_NAME: librenms
+    DB_USER: librenms
+    DB_PASSWORD: secure_librenms_password
+    REDIS_HOST: redis
+    REDIS_PORT: 6379
+    PUID: 1000
+    PGID: 1000
+    TZ: UTC
+
 
 # Database (MariaDB)
 database:
