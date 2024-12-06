@@ -22,7 +22,8 @@ spec:
             - sh
             - -c
             - |
-              mkdir -p /data/.env /data/cache /data/rrd
+              mkdir -p /data/cache /data/rrd
+              rm -rf /data/.env
               touch /data/.env
               chown -R 1000:1000 /data
           volumeMounts:
