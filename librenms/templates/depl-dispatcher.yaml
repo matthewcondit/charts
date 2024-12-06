@@ -1,21 +1,21 @@
 {{- if .Values.dispatcher.enabled }}
-{{- range .Values.markets }}
+{{- range $index, $market := .Values.markets }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: librenms-dispatcher-{{ .name }}
+  name: librenms-dispatcher-{{ $market.name }}
   namespace: {{ $.Release.Namespace }}
   labels:
-    app: librenms-dispatcher-{{ .name }}
+    app: librenms-dispatcher-{{ $market.name }}
 spec:
   replicas: {{ $.Values.dispatcher.replicaCount }}
   selector:
     matchLabels:
-      app: librenms-dispatcher-{{ .name }}
+      app: librenms-dispatcher-{{ $market.name }}
   template:
     metadata:
       labels:
-        app: librenms-dispatcher-{{ .name }}
+        app: librenms-dispatcher-{{ $market.name }}
     spec:
       containers:
         - name: dispatcher
@@ -36,7 +36,7 @@ spec:
             - name: SIDECAR_DISPATCHER
               value: "1"
             - name: DISPATCHER_NODE_ID
-              value: "{{ .name }}"
+              value: "{{ $market.name }}"
             - name: TZ
               value: "{{ $.Values.dispatcher.env.TZ }}"
             - name: LIBRENMS_BASE_URL
