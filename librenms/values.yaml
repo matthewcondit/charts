@@ -24,6 +24,9 @@ librenms:
     PUID: 1000
     PGID: 1000
     TZ: UTC
+    SERVER_NAME: nms.example.com
+    CACHE_DRIVER: redis
+    SESSION_SECURE_COOKIE: "true"
 
 
 # Database (MariaDB)
