@@ -1,37 +1,24 @@
+{{- if .Values.dispatcher.enabled }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: librenms
+  name: librenms-dispatcher
   namespace: {{ .Release.Namespace }}
   labels:
-    app: librenms
+    app: librenms-dispatcher
 spec:
-  replicas: {{ .Values.librenms.replicaCount }}
+  replicas: {{ .Values.dispatcher.replicaCount }}
   selector:
     matchLabels:
-      app: librenms
+      app: librenms-dispatcher
   template:
     metadata:
       labels:
-        app: librenms
+        app: librenms-dispatcher
     spec:
-      # initContainers:
-      #   - name: init-directories
-      #     image: busybox:latest
-      #     command:
-      #       - sh
-      #       - -c
-      #       - |
-      #         mkdir -p /data/cache /data/rrd
-      #         chown -R 1000:1000 /data
-      #     volumeMounts:
-      #       - name: librenms-data
-      #         mountPath: /data
       containers:
-        - name: librenms
-          image: "{{ .Values.librenms.image }}"
-          ports:
-            - containerPort: {{ .Values.librenms.service.port }}
+        - name: dispatcher
+          image: "{{ .Values.dispatcher.image }}"
           env:
             - name: DB_HOST
               value: {{ .Values.librenms.env.DB_HOST }}
@@ -63,10 +50,10 @@ spec:
               value: "{{ .Values.librenms.env.LIBRENMS_SNMP_COMMUNITY }}"
             - name: LIBRENMS_WEATHERMAP
               value: "{{ .Values.librenms.env.LIBRENMS_WEATHERMAP }}"
-          volumeMounts:
-            - name: librenms-data
-              mountPath: /data
-      volumes:
-        - name: librenms-data
-          persistentVolumeClaim:
-            claimName: {{ if .Values.librenms.persistence.existingClaim }}{{ .Values.librenms.persistence.existingClaim }}{{ else }}librenms-data{{ end }}
+            - name: SIDECAR_DISPATCHER
+              value: 1
+            - name: DISPATCHER_NODE_ID
+              value: "{{ .Values.dispatcher.env.DISPATCHER_NODE_ID }}"
+          ports:
+            - containerPort: {{ .Values.dispatcher.service.port }}
+{{- end }}

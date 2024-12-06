@@ -29,7 +29,6 @@ librenms:
     LIBRENMS_WEATHERMAP: true
     CACHE_DRIVER: redis
     SESSION_DRIVER: redis
-    REDIS_HOST: redis
     SESSION_SECURE_COOKIE: true
 
 # Database (MariaDB)
@@ -86,3 +85,30 @@ ingress:
     -----BEGIN PRIVATE KEY-----
     YOUR_PRIVATE_KEY_CONTENT
     -----END PRIVATE KEY-----
+
+# Dispatchers
+dispatcher:
+  enabled: true
+  image: librenms/librenms:latest
+  replicaCount: 1
+  nodeId: "dispatcher1"
+  service:
+    type: ClusterIP
+    port: 514
+  env:
+    DISPATCHER_NODE_ID: dispatcher1
+    DB_HOST: mariadb
+    DB_NAME: librenms
+    DB_USER: librenms
+    DB_PASSWORD: secure_librenms_password
+    REDIS_HOST: redis
+    REDIS_PORT: 6379
+    PUID: 1000
+    PGID: 1000
+    TZ: UTC
+    LIBRENMS_BASE_URL: https://nms.example.com/
+    LIBRENMS_SNMP_COMMUNITY: librenmsdocker
+    LIBRENMS_WEATHERMAP: true
+    CACHE_DRIVER: redis
+    SESSION_DRIVER: redis
+    SESSION_SECURE_COOKIE: true
