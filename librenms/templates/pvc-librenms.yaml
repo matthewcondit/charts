@@ -12,7 +12,7 @@ metadata:
     {{- end }}
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   resources:
     requests:
       storage: {{ .Values.librenms.persistence.size }}
