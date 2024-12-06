@@ -5,8 +5,9 @@ metadata:
   name: unified-ingress
   namespace: {{ .Release.Namespace }}
   annotations:
-    kubernetes.io/ingress.class: nginx
+    # Remove deprecated kubernetes.io/ingress.class annotation
 spec:
+  ingressClassName: traefik # Replace with your ingress controller's class name
   tls:
     - hosts:
         {{- range .Values.ingress.hosts }}
@@ -27,3 +28,4 @@ spec:
                   number: {{ .servicePort }}
     {{- end }}
 {{- end }}
+
