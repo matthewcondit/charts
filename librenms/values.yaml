@@ -93,6 +93,7 @@ markets:
 
 # Common Dispatcher Configuration
 dispatcher:
+  enabled: true
   image: librenms/librenms:latest
   replicaCount: 1
   env:
