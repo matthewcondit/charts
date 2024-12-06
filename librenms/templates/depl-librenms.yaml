@@ -23,7 +23,6 @@ spec:
             - -c
             - |
               mkdir -p /data/cache /data/rrd
-              [ ! -f /data/.env ] && touch /data/.env
               chown -R 1000:1000 /data
           volumeMounts:
             - name: librenms-data
