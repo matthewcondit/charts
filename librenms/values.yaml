@@ -7,7 +7,7 @@ librenms:
   replicaCount: 1
   service:
     type: ClusterIP
-    port: 80
+    port: 8000
   persistence:
     enabled: true
     size: 100Gi
