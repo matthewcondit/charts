@@ -28,7 +28,7 @@ spec:
             {{- end }}
           volumeMounts:
             - name: oxidized-data
-              mountPath: /etc/oxidized
+              mountPath: /home/oxidized
       volumes:
         - name: oxidized-data
           persistentVolumeClaim:
