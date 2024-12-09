@@ -51,8 +51,6 @@ spec:
               value: "{{ $.Values.dispatcher.env.SESSION_DRIVER }}"
             - name: SESSION_SECURE_COOKIE
               value: "{{ $.Values.dispatcher.env.SESSION_SECURE_COOKIE }}"
-            - name: DISPATCHER_ARGS
-              value: "--group {{ $market.name }}"
           volumeMounts:
             - name: librenms-data
               mountPath: /data
