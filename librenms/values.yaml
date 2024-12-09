@@ -70,9 +70,9 @@ ingress:
     - name: nms.example.com
       serviceName: librenms
       servicePort: 8000
-    #- name: graylog.example.com
-    #  serviceName: graylog
-    #  servicePort: 9000
+    - name: graylog.verobroadband.com
+      serviceName: graylog-web
+      servicePort: 9000
     #- name: oxidized.example.com
     #  serviceName: oxidized
     #  servicePort: 8888
