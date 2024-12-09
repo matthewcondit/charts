@@ -1,0 +1,31 @@
+{{- if .Values.prometheus.enabled }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-prometheus
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: prometheus
+spec:
+  replicas: {{ .Values.prometheus.replicaCount }}
+  selector:
+    matchLabels:
+      app: prometheus
+  template:
+    metadata:
+      labels:
+        app: prometheus
+    spec:
+      containers:
+        - name: prometheus
+          image: {{ .Values.prometheus.image }}
+          ports:
+            - containerPort: {{ .Values.prometheus.service.port }}
+          volumeMounts:
+            - name: prometheus-data
+              mountPath: /prometheus
+      volumes:
+        - name: prometheus-data
+          persistentVolumeClaim:
+            claimName: {{ .Values.prometheus.persistence.existingClaim | default (printf "%s-prometheus-data" .Release.Name) }}
+{{- end }}
