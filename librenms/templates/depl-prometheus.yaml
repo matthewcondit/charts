@@ -16,6 +16,11 @@ spec:
       labels:
         app: prometheus
     spec:
+      securityContext:
+        fsGroup: 65534  # Set to 'nobody' group
+        runAsUser: 65534  # Run as 'nobody' user
+        runAsGroup: 65534  # Use 'nobody' group
+    spec:
       containers:
         - name: prometheus
           image: {{ .Values.prometheus.image }}
