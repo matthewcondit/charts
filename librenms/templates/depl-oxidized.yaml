@@ -1,0 +1,36 @@
+{{- if .Values.oxidized.enabled }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: oxidized
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: oxidized
+spec:
+  replicas: {{ .Values.oxidized.replicaCount }}
+  selector:
+    matchLabels:
+      app: oxidized
+  template:
+    metadata:
+      labels:
+        app: oxidized
+    spec:
+      containers:
+        - name: oxidized
+          image: "{{ .Values.oxidized.image }}:{{ .Values.oxidized.tag }}"
+          ports:
+            - containerPort: 8888
+          env:
+            {{- range $key, $value := .Values.oxidized.env }}
+            - name: {{ $key }}
+              value: "{{ $value }}"
+            {{- end }}
+          volumeMounts:
+            - name: oxidized-data
+              mountPath: /root/.config/oxidized
+      volumes:
+        - name: oxidized-data
+          persistentVolumeClaim:
+            claimName: {{ .Values.oxidized.persistence.existingClaim | default "oxidized-data" }}
+{{- end }}

@@ -1,0 +1,16 @@
+{{- if .Values.oxidized.enabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: oxidized
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: oxidized
+spec:
+  type: {{ .Values.oxidized.service.type }}
+  ports:
+    - port: {{ .Values.oxidized.service.port }}
+      targetPort: 8888
+  selector:
+    app: oxidized
+{{- end }}

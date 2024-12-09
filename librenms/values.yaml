@@ -114,3 +114,27 @@ dispatcher:
     CACHE_DRIVER: redis
     SESSION_DRIVER: redis
     SESSION_SECURE_COOKIE: true
+
+# Oxidized
+oxidized:
+  enabled: true
+  image: oxidized/oxidized
+  tag: latest
+  replicaCount: 1
+  service:
+    type: ClusterIP
+    port: 8888
+  env:
+    OXIDIZED_USER: oxidized
+    OXIDIZED_PASSWORD: secure_password
+    OXIDIZED_MODEL_MAP: 'arista=eos,cisco=ios,cisco-wlc=aireos'
+    OXIDIZED_THREADS: 30
+    OXIDIZED_LOG: true
+    OXIDIZED_REST_LISTEN: 0.0.0.0:8888
+  persistence:
+    enabled: true
+    size: 5Gi
+    storageClass: longhorn
+    existingClaim: ""
+    retainOnDelete: true
+
