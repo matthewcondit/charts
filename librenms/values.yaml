@@ -89,7 +89,9 @@ ingress:
 # Markets
 markets:
   - name: "market1"
+    poller_group_id: 1
   - name: "market2"
+    poller_group_id: 2
 
 # Common Dispatcher Configuration
 dispatcher:
