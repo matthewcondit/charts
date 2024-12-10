@@ -65,7 +65,7 @@ spec:
               value: "{{ .Values.librenms.env.LIBRENMS_WEATHERMAP }}"
           volumeMounts:
             - name: librenms-data
-              mountPath: /opt/librenms
+              mountPath: /data
       volumes:
         - name: librenms-data
           persistentVolumeClaim:
