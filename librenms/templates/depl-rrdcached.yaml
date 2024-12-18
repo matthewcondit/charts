@@ -55,11 +55,4 @@ spec:
       - name: journal-data
         persistentVolumeClaim:
           claimName: {{ .Release.Name }}-rrdcached-journal
-      resources:
-        limits:
-          cpu: {{ .Values.rrdcached.resources.limits.cpu }}
-          memory: {{ .Values.rrdcached.resources.limits.memory }}
-        requests:
-          cpu: {{ .Values.rrdcached.resources.requests.cpu }}
-          memory: {{ .Values.rrdcached.resources.requests.memory }}
 {{- end }}
