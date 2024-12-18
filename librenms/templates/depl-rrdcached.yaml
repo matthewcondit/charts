@@ -24,13 +24,13 @@ spec:
         imagePullPolicy: IfNotPresent
         env:
         - name: TZ
-          value: {{ .Values.rrdcached.env.TZ }}
+          value: "{{ .Values.rrdcached.env.TZ }}"
         - name: PUID
           value: "{{ .Values.rrdcached.env.PUID }}"
         - name: PGID
           value: "{{ .Values.rrdcached.env.PGID }}"
         - name: LOG_LEVEL
-          value: {{ .Values.rrdcached.env.LOG_LEVEL }}
+          value: "{{ .Values.rrdcached.env.LOG_LEVEL }}"
         - name: WRITE_TIMEOUT
           value: "{{ .Values.rrdcached.env.WRITE_TIMEOUT }}"
         - name: WRITE_JITTER

@@ -149,13 +149,6 @@ rrdcached:
   service:
     type: ClusterIP
     port: 42217
-  resources:
-    requests:
-      memory: "128Mi"
-      cpu: "100m"
-    limits:
-      memory: "256Mi"
-      cpu: "200m"
   persistence:
     enabled: true
     size: 10Gi
