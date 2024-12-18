@@ -1,0 +1,31 @@
+{{- if .Values.rrdcached.persistence.enabled }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ .Release.Name }}-rrdcached-db
+  labels:
+    app: rrdcached
+    release: {{ .Release.Name }}
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: {{ .Values.rrdcached.persistence.size }}
+  storageClassName: {{ .Values.rrdcached.persistence.storageClass }}
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ .Release.Name }}-rrdcached-journal
+  labels:
+    app: rrdcached
+    release: {{ .Release.Name }}
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: {{ .Values.rrdcached.persistence.size }}
+  storageClassName: {{ .Values.rrdcached.persistence.storageClass }}
+{{- end }}

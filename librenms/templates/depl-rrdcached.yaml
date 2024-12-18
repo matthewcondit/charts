@@ -1,0 +1,65 @@
+{{- if .Values.rrdcached.enabled }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-rrdcached
+  labels:
+    app: rrdcached
+    release: {{ .Release.Name }}
+spec:
+  replicas: {{ .Values.rrdcached.replicas }}
+  selector:
+    matchLabels:
+      app: rrdcached
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: rrdcached
+        release: {{ .Release.Name }}
+    spec:
+      containers:
+      - name: rrdcached
+        image: {{ .Values.rrdcached.image }}
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: TZ
+          value: {{ .Values.rrdcached.env.TZ }}
+        - name: PUID
+          value: "{{ .Values.rrdcached.env.PUID }}"
+        - name: PGID
+          value: "{{ .Values.rrdcached.env.PGID }}"
+        - name: LOG_LEVEL
+          value: {{ .Values.rrdcached.env.LOG_LEVEL }}
+        - name: WRITE_TIMEOUT
+          value: "{{ .Values.rrdcached.env.WRITE_TIMEOUT }}"
+        - name: WRITE_JITTER
+          value: "{{ .Values.rrdcached.env.WRITE_JITTER }}"
+        - name: WRITE_THREADS
+          value: "{{ .Values.rrdcached.env.WRITE_THREADS }}"
+        - name: FLUSH_DEAD_DATA_INTERVAL
+          value: "{{ .Values.rrdcached.env.FLUSH_DEAD_DATA_INTERVAL }}"
+        ports:
+        - name: tcp
+          containerPort: 42217
+          protocol: TCP
+        volumeMounts:
+        - name: db-data
+          mountPath: /data/db
+        - name: journal-data
+          mountPath: /data/journal
+      volumes:
+      - name: db-data
+        persistentVolumeClaim:
+          claimName: {{ .Release.Name }}-rrdcached-db
+      - name: journal-data
+        persistentVolumeClaim:
+          claimName: {{ .Release.Name }}-rrdcached-journal
+      resources:
+        limits:
+          cpu: {{ .Values.rrdcached.resources.limits.cpu }}
+          memory: {{ .Values.rrdcached.resources.limits.memory }}
+        requests:
+          cpu: {{ .Values.rrdcached.resources.requests.cpu }}
+          memory: {{ .Values.rrdcached.resources.requests.memory }}
+{{- end }}

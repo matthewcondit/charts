@@ -141,4 +141,32 @@ oxidized:
     existingClaim: ""
     retainOnDelete: true
 
+# RRDCached
+rrdcached:
+  enabled: true
+  image: rrdtool/rrdcached:latest
+  replicas: 1
+  service:
+    type: ClusterIP
+    port: 42217
+  resources:
+    requests:
+      memory: "128Mi"
+      cpu: "100m"
+    limits:
+      memory: "256Mi"
+      cpu: "200m"
+  persistence:
+    enabled: true
+    size: 10Gi
+    storageClass: "longhorn"
+  env:
+    TZ: "UTC"
+    PUID: 1000
+    PGID: 1000
+    LOG_LEVEL: "LOG_INFO"
+    WRITE_TIMEOUT: 300
+    WRITE_JITTER: 0
+    WRITE_THREADS: 4
+    FLUSH_DEAD_DATA_INTERVAL: 3600
 
