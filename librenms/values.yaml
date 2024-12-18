@@ -144,7 +144,7 @@ oxidized:
 # RRDCached
 rrdcached:
   enabled: true
-  image: rrdtool/rrdcached:latest
+  image: crazymax/rrdcached:latest
   replicas: 1
   service:
     type: ClusterIP
