@@ -37,5 +37,9 @@ spec:
           volumeMounts:
             - name: librenms-data
               mountPath: /data
+      volumes:
+        - name: librenms-data
+          persistentVolumeClaim:
+            claimName: {{ if $.Values.librenms.persistence.existingClaim }}{{ $.Values.librenms.persistence.existingClaim }}{{ else }}librenms-data{{ end }}
 ---
 {{- end }}
