@@ -7,7 +7,6 @@ metadata:
   labels:
     app: syslog
 spec:
-  hostNetwork: true
   replicas: 1
   selector:
     matchLabels:
@@ -35,6 +34,13 @@ spec:
               value: "{{ $.Values.librenms.env.REDIS_PORT }}"
             - name: SIDECAR_SYSLOGNG
               value: "1"
+          ports:
+            - name: syslog-tcp
+              containerPort: 514
+              protocol: TCP
+            - name: syslog-udp
+              containerPort: 514
+              protocol: UDP
           volumeMounts:
             - name: librenms-data
               mountPath: /data
