@@ -11,12 +11,10 @@ spec:
   ports:
     - name: syslog-tcp
       protocol: TCP
-      port: 514       # External service port
       targetPort: 514 # Internal container port
       nodePort: 31514 # NodePort for TCP traffic
     - name: syslog-udp
       protocol: UDP
-      port: 514       # External service port
       targetPort: 514 # Internal container port
       nodePort: 32514 # NodePort for UDP traffic
   selector:
