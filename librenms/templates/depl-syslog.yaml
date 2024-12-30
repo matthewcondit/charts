@@ -37,11 +37,11 @@ spec:
           ports:
             - name: syslog-tcp
               containerPort: 514
-              hostPort: 514
+              hostPort: 31514
               protocol: TCP
             - name: syslog-udp
               containerPort: 514
-              hostPort: 514
+              hostPort: 32514
               protocol: UDP
           volumeMounts:
             - name: librenms-data
