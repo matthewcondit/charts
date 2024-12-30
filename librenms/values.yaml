@@ -161,6 +161,6 @@ rrdcached:
     FLUSH_DEAD_DATA_INTERVAL: 3600
 
 # Syslog-ng
-  syslog:
-    enabled: true
+syslog:
+  enabled: true
 
