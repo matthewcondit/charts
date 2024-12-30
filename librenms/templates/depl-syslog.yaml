@@ -1,13 +1,12 @@
 {{- if .Values.syslog.enabled }}
 apiVersion: apps/v1
-kind: Deployment
+kind: DaemonSet
 metadata:
   name: syslog
   namespace: {{ $.Release.Namespace }}
   labels:
     app: syslog
 spec:
-  replicas: 1
   selector:
     matchLabels:
       app: syslog
@@ -16,6 +15,7 @@ spec:
       labels:
         app: syslog
     spec:
+      hostNetwork: true  # Allows direct access to host ports
       containers:
         - name: syslog-ng
           image: "{{ $.Values.librenms.image }}"
@@ -34,6 +34,15 @@ spec:
               value: "{{ $.Values.librenms.env.REDIS_PORT }}"
             - name: SIDECAR_SYSLOGNG
               value: "1"
+          ports:
+            - name: syslog-tcp
+              containerPort: 514
+              hostPort: 514
+              protocol: TCP
+            - name: syslog-udp
+              containerPort: 514
+              hostPort: 514
+              protocol: UDP
           volumeMounts:
             - name: librenms-data
               mountPath: /data
