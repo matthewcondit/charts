@@ -76,9 +76,6 @@ ingress:
     - name: oxidized.example.com
       serviceName: oxidized
       servicePort: 8888
-    - name: prom.example.com
-      serviceName: prometheus
-      servicePort: 9090
   tlsSecret: librenms-tls
   cert: |-
     -----BEGIN CERTIFICATE-----
@@ -162,4 +159,8 @@ rrdcached:
     WRITE_JITTER: 0
     WRITE_THREADS: 4
     FLUSH_DEAD_DATA_INTERVAL: 3600
+
+# Syslog-ng
+  syslog:
+    enabled: true
 

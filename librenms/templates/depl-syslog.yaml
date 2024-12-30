@@ -1,0 +1,41 @@
+{{- if .Values.syslog.enabled }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: syslog
+  namespace: {{ $.Release.Namespace }}
+  labels:
+    app: syslog
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: syslog
+  template:
+    metadata:
+      labels:
+        app: syslog
+    spec:
+      containers:
+        - name: syslog-ng
+          image: "{{ $.Values.librenms.image }}"
+          env:
+            - name: DB_HOST
+              value: "{{ $.Values.librenms.env.DB_HOST }}"
+            - name: DB_NAME
+              value: "{{ $.Values.librenms.env.DB_NAME }}"
+            - name: DB_USER
+              value: "{{ $.Values.librenms.env.DB_USER }}"
+            - name: DB_PASSWORD
+              value: "{{ $.Values.librenms.env.DB_PASSWORD }}"
+            - name: REDIS_HOST
+              value: "{{ $.Values.librenms.env.REDIS_HOST }}"
+            - name: REDIS_PORT
+              value: "{{ $.Values.librenms.env.REDIS_PORT }}"
+            - name: SIDECAR_SYSLOGNG
+              value: "1"
+          volumeMounts:
+            - name: librenms-data
+              mountPath: /data
+---
+{{- end }}

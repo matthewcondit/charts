@@ -1,0 +1,23 @@
+{{- if .Values.syslog.enabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: syslog
+  namespace: {{ $.Release.Namespace }}
+  labels:
+    app: syslog
+spec:
+  type: ClusterIP
+  ports:
+    - name: syslog-tcp
+      port: 1514
+      protocol: TCP
+      targetPort: 514
+    - name: syslog-udp
+      port: 1514
+      protocol: UDP
+      targetPort: 514
+  selector:
+    app: librenms-syslog
+---
+{{- end }}
