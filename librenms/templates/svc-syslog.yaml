@@ -1,0 +1,26 @@
+{{- if .Values.syslog.enabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: syslog
+  namespace: {{ $.Release.Namespace }}
+  labels:
+    app: syslog
+spec:
+  type: NodePort
+  externalTrafficPolicy: Local  # Preserves the source IP
+  ports:
+    - name: syslog-tcp
+      protocol: TCP
+      port: 514
+      targetPort: 514
+      nodePort: 31514
+    - name: syslog-udp
+      protocol: UDP
+      port: 514
+      targetPort: 514
+      nodePort: 32514
+  selector:
+    app: syslog
+---
+{{- end }}
