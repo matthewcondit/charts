@@ -9,14 +9,10 @@ metadata:
 spec:
   type: NodePort
   ports:
-    # - name: syslog-tcp
-    #   protocol: TCP
-    #   port: 514
-    #   nodePort: 31514
     - name: syslog-udp
       protocol: UDP
-      port: 514 # Internal container port
-      nodePort: 32514 # NodePort for UDP traffic
+      port: 514
+      nodePort: 32514
   selector:
     app: syslog
 ---
