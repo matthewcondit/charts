@@ -1,13 +1,12 @@
 {{- if .Values.syslog.enabled }}
 apiVersion: apps/v1
-kind: Deployment
+kind: DaemonSet
 metadata:
   name: syslog
   namespace: {{ $.Release.Namespace }}
   labels:
     app: syslog
 spec:
-  replicas: 1
   selector:
     matchLabels:
       app: syslog
@@ -48,5 +47,11 @@ spec:
         - name: librenms-data
           persistentVolumeClaim:
             claimName: {{ if $.Values.librenms.persistence.existingClaim }}{{ $.Values.librenms.persistence.existingClaim }}{{ else }}librenms-data{{ end }}
----
+      tolerations:
+        - key: "node-role.kubernetes.io/control-plane"
+          operator: "Exists"
+          effect: "NoSchedule"
+        - key: "node-role.kubernetes.io/master"
+          operator: "Exists"
+          effect: "NoSchedule"
 {{- end }}
