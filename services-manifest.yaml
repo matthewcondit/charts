@@ -1,0 +1,528 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: graylog
+      meta.helm.sh/release-namespace: librenms
+      service.alpha.kubernetes.io/tolerate-unready-endpoints: "true"
+    creationTimestamp: "2024-12-31T16:05:47Z"
+    labels:
+      app.kubernetes.io/instance: graylog
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: graylog
+      app.kubernetes.io/version: 5.2.6
+      helm.sh/chart: graylog-2.3.10
+    name: graylog
+    namespace: librenms
+    resourceVersion: "7369788"
+    uid: 52a72608-768a-4f0f-b79d-a116330c3096
+  spec:
+    clusterIP: None
+    clusterIPs:
+    - None
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: graylog
+      port: 9000
+      protocol: TCP
+      targetPort: 9000
+    publishNotReadyAddresses: true
+    selector:
+      app.kubernetes.io/instance: graylog
+      app.kubernetes.io/name: graylog
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: graylog
+      meta.helm.sh/release-namespace: librenms
+    creationTimestamp: "2024-12-31T16:05:47Z"
+    labels:
+      app.kubernetes.io/instance: graylog
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: graylog
+      app.kubernetes.io/version: 5.2.6
+      graylog-role: master
+      helm.sh/chart: graylog-2.3.10
+    name: graylog-master
+    namespace: librenms
+    resourceVersion: "7369802"
+    uid: d6293824-3504-4c39-9cdf-02c0d80c84e2
+  spec:
+    clusterIP: 10.43.254.174
+    clusterIPs:
+    - 10.43.254.174
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: graylog
+      port: 9000
+      protocol: TCP
+      targetPort: 9000
+    selector:
+      app.kubernetes.io/instance: graylog
+      app.kubernetes.io/name: graylog
+      graylog-role: master
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: graylog
+      meta.helm.sh/release-namespace: librenms
+    creationTimestamp: "2024-12-31T16:05:47Z"
+    labels:
+      app.kubernetes.io/component: arbiter
+      app.kubernetes.io/instance: graylog
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: mongodb
+      helm.sh/chart: mongodb-13.6.6
+    name: graylog-mongodb-arbiter-headless
+    namespace: librenms
+    resourceVersion: "7369789"
+    uid: e50c6756-df73-4bb8-ae4e-43774966b1aa
+  spec:
+    clusterIP: None
+    clusterIPs:
+    - None
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: tcp-mongodb
+      port: 27017
+      protocol: TCP
+      targetPort: mongodb
+    selector:
+      app.kubernetes.io/component: arbiter
+      app.kubernetes.io/instance: graylog
+      app.kubernetes.io/name: mongodb
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: graylog
+      meta.helm.sh/release-namespace: librenms
+    creationTimestamp: "2024-12-31T16:05:47Z"
+    labels:
+      app.kubernetes.io/component: mongodb
+      app.kubernetes.io/instance: graylog
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: mongodb
+      helm.sh/chart: mongodb-13.6.6
+    name: graylog-mongodb-headless
+    namespace: librenms
+    resourceVersion: "7369787"
+    uid: 8ada2ac2-7ccf-4a47-9898-7953697a1981
+  spec:
+    clusterIP: None
+    clusterIPs:
+    - None
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: mongodb
+      port: 27017
+      protocol: TCP
+      targetPort: mongodb
+    publishNotReadyAddresses: true
+    selector:
+      app.kubernetes.io/component: mongodb
+      app.kubernetes.io/instance: graylog
+      app.kubernetes.io/name: mongodb
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      field.cattle.io/publicEndpoints: '[{"port":31514,"protocol":"TCP","serviceName":"librenms:graylog-tcp","allNodes":true}]'
+      meta.helm.sh/release-name: graylog
+      meta.helm.sh/release-namespace: librenms
+    creationTimestamp: "2024-12-31T16:05:47Z"
+    labels:
+      app.kubernetes.io/component: TCP
+      app.kubernetes.io/instance: graylog
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: graylog
+      app.kubernetes.io/version: 5.2.6
+      helm.sh/chart: graylog-2.3.10
+    name: graylog-tcp
+    namespace: librenms
+    resourceVersion: "7369801"
+    uid: 66fd6fd5-b17c-46eb-bed1-8b0f8af706d2
+  spec:
+    clusterIP: 10.43.207.109
+    clusterIPs:
+    - 10.43.207.109
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: syslog-tcp
+      nodePort: 31514
+      port: 514
+      protocol: TCP
+      targetPort: 514
+    selector:
+      app.kubernetes.io/instance: graylog
+      app.kubernetes.io/name: graylog
+    sessionAffinity: None
+    type: NodePort
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      field.cattle.io/publicEndpoints: '[{"port":32514,"protocol":"UDP","serviceName":"librenms:graylog-udp","allNodes":true}]'
+      meta.helm.sh/release-name: graylog
+      meta.helm.sh/release-namespace: librenms
+    creationTimestamp: "2024-12-31T16:05:47Z"
+    labels:
+      app.kubernetes.io/component: UDP
+      app.kubernetes.io/instance: graylog
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: graylog
+      app.kubernetes.io/version: 5.2.6
+      helm.sh/chart: graylog-2.3.10
+    name: graylog-udp
+    namespace: librenms
+    resourceVersion: "7369804"
+    uid: 528822a0-78f3-4632-aad9-6a21afa44f23
+  spec:
+    clusterIP: 10.43.227.67
+    clusterIPs:
+    - 10.43.227.67
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: syslog-udp
+      nodePort: 32514
+      port: 514
+      protocol: UDP
+      targetPort: 514
+    selector:
+      app.kubernetes.io/instance: graylog
+      app.kubernetes.io/name: graylog
+    sessionAffinity: None
+    type: NodePort
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: graylog
+      meta.helm.sh/release-namespace: librenms
+    creationTimestamp: "2024-12-31T16:05:47Z"
+    labels:
+      app.kubernetes.io/component: web
+      app.kubernetes.io/instance: graylog
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: graylog
+      app.kubernetes.io/version: 5.2.6
+      helm.sh/chart: graylog-2.3.10
+    name: graylog-web
+    namespace: librenms
+    resourceVersion: "7369792"
+    uid: 5ee71d71-2a68-443e-afba-d251031160c8
+  spec:
+    clusterIP: 10.43.144.252
+    clusterIPs:
+    - 10.43.144.252
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: graylog
+      port: 9000
+      protocol: TCP
+      targetPort: 9000
+    selector:
+      app.kubernetes.io/instance: graylog
+      app.kubernetes.io/name: graylog
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: librenms
+      meta.helm.sh/release-namespace: librenms
+    creationTimestamp: "2024-12-18T03:38:56Z"
+    labels:
+      app: librenms
+      app.kubernetes.io/managed-by: Helm
+    name: librenms
+    namespace: librenms
+    resourceVersion: "85008"
+    uid: adef83cd-9217-48b7-a586-de6d067bad84
+  spec:
+    clusterIP: 10.43.132.151
+    clusterIPs:
+    - 10.43.132.151
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - port: 8000
+      protocol: TCP
+      targetPort: 8000
+    selector:
+      app: librenms
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: librenms
+      meta.helm.sh/release-namespace: librenms
+    creationTimestamp: "2024-12-18T03:38:56Z"
+    labels:
+      app: mariadb
+      app.kubernetes.io/managed-by: Helm
+    name: mariadb
+    namespace: librenms
+    resourceVersion: "85010"
+    uid: 5262dcc0-579b-4d2c-86be-3922dbc1260e
+  spec:
+    clusterIP: 10.43.232.215
+    clusterIPs:
+    - 10.43.232.215
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - port: 3306
+      protocol: TCP
+      targetPort: 3306
+    selector:
+      app: mariadb
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: graylog
+      meta.helm.sh/release-namespace: librenms
+    creationTimestamp: "2024-12-31T16:05:47Z"
+    labels:
+      app.kubernetes.io/component: opensearch-cluster-master
+      app.kubernetes.io/instance: graylog
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: opensearch
+      app.kubernetes.io/version: 2.4.0
+      helm.sh/chart: opensearch-2.8.0
+    name: opensearch-cluster-master
+    namespace: librenms
+    resourceVersion: "7369794"
+    uid: 66e16962-2c6b-46db-b4c4-415804dbccd8
+  spec:
+    clusterIP: 10.43.226.94
+    clusterIPs:
+    - 10.43.226.94
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: http
+      port: 9200
+      protocol: TCP
+      targetPort: 9200
+    - name: transport
+      port: 9300
+      protocol: TCP
+      targetPort: 9300
+    selector:
+      app.kubernetes.io/instance: graylog
+      app.kubernetes.io/name: opensearch
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: graylog
+      meta.helm.sh/release-namespace: librenms
+      service.alpha.kubernetes.io/tolerate-unready-endpoints: "true"
+    creationTimestamp: "2024-12-31T16:05:47Z"
+    labels:
+      app.kubernetes.io/component: opensearch-cluster-master
+      app.kubernetes.io/instance: graylog
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: opensearch
+      app.kubernetes.io/version: 2.4.0
+      helm.sh/chart: opensearch-2.8.0
+    name: opensearch-cluster-master-headless
+    namespace: librenms
+    resourceVersion: "7369790"
+    uid: cf398d49-cf11-4452-9cbb-3a68424d3876
+  spec:
+    clusterIP: None
+    clusterIPs:
+    - None
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: http
+      port: 9200
+      protocol: TCP
+      targetPort: 9200
+    - name: transport
+      port: 9300
+      protocol: TCP
+      targetPort: 9300
+    publishNotReadyAddresses: true
+    selector:
+      app.kubernetes.io/instance: graylog
+      app.kubernetes.io/name: opensearch
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: librenms
+      meta.helm.sh/release-namespace: librenms
+    creationTimestamp: "2024-12-18T03:38:56Z"
+    labels:
+      app: oxidized
+      app.kubernetes.io/managed-by: Helm
+    name: oxidized
+    namespace: librenms
+    resourceVersion: "85022"
+    uid: 674cf858-626a-4455-8589-df7d1d91449a
+  spec:
+    clusterIP: 10.43.55.143
+    clusterIPs:
+    - 10.43.55.143
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - port: 8888
+      protocol: TCP
+      targetPort: 8888
+    selector:
+      app: oxidized
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: librenms
+      meta.helm.sh/release-namespace: librenms
+    creationTimestamp: "2024-12-18T03:38:56Z"
+    labels:
+      app: redis
+      app.kubernetes.io/managed-by: Helm
+    name: redis
+    namespace: librenms
+    resourceVersion: "85012"
+    uid: d6983b35-5375-4c5c-9b05-fa0d8a98746f
+  spec:
+    clusterIP: 10.43.81.53
+    clusterIPs:
+    - 10.43.81.53
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - port: 6379
+      protocol: TCP
+      targetPort: 6379
+    selector:
+      app: redis
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: librenms
+      meta.helm.sh/release-namespace: librenms
+    creationTimestamp: "2024-12-18T15:28:42Z"
+    labels:
+      app: rrdcached
+      app.kubernetes.io/managed-by: Helm
+      release: librenms
+    name: rrdcached
+    namespace: librenms
+    resourceVersion: "358413"
+    uid: e81010bb-4714-4633-94ea-b40cce2b49d3
+  spec:
+    clusterIP: 10.43.71.180
+    clusterIPs:
+    - 10.43.71.180
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - port: 42217
+      protocol: TCP
+      targetPort: 42217
+    selector:
+      app: rrdcached
+      release: librenms
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+kind: List
+metadata:
+  resourceVersion: ""
