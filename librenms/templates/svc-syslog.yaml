@@ -8,7 +8,7 @@ metadata:
     app: syslog
 spec:
   type: NodePort
-  externalTrafficPolicy: Local  # Preserves the source IP
+  externalTrafficPolicy: Cluster
   ports:
     - name: syslog-tcp
       protocol: TCP
