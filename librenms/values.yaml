@@ -33,6 +33,7 @@ librenms:
 
 # Database (MariaDB)
 database:
+  enabled: true
   image: mariadb:10.5
   replicaCount: 1
   rootPassword: "secure_root_password"

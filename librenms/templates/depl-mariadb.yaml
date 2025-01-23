@@ -1,3 +1,4 @@
+{{- if .Values.database.enabled -}}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -36,5 +37,4 @@ spec:
         - name: mariadb-data
           persistentVolumeClaim:
             claimName: {{ if .Values.database.persistence.existingClaim }}{{ .Values.database.persistence.existingClaim }}{{ else }}mariadb-data{{ end }}
-
-
+{{- end }}
