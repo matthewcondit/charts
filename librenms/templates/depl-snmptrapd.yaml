@@ -1,0 +1,54 @@
+{{- if .Values.snmptrapd.enabled }}
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: snmptrapd
+  namespace: {{ $.Release.Namespace }}
+  labels:
+    app: snmptrapd
+spec:
+  selector:
+    matchLabels:
+      app: snmptrapd
+  template:
+    metadata:
+      labels:
+        app: snmptrapd
+    spec:
+      containers:
+        - name: snmptrapd
+          image: "{{ $.Values.librenms.image }}"
+          env:
+            - name: DB_HOST
+              value: "{{ $.Values.librenms.env.DB_HOST }}"
+            - name: DB_NAME
+              value: "{{ $.Values.librenms.env.DB_NAME }}"
+            - name: DB_USER
+              value: "{{ $.Values.librenms.env.DB_USER }}"
+            - name: DB_PASSWORD
+              value: "{{ $.Values.librenms.env.DB_PASSWORD }}"
+            - name: REDIS_HOST
+              value: "{{ $.Values.librenms.env.REDIS_HOST }}"
+            - name: REDIS_PORT
+              value: "{{ $.Values.librenms.env.REDIS_PORT }}"
+            - name: SIDECAR_SNMPTRAPD
+              value: "1"
+          ports:
+            - name: snmptrapd-udp
+              containerPort: 162
+              protocol: UDP
+          volumeMounts:
+            - name: librenms-data
+              mountPath: /data
+      volumes:
+        - name: librenms-data
+          persistentVolumeClaim:
+            claimName: {{ if $.Values.librenms.persistence.existingClaim }}{{ $.Values.librenms.persistence.existingClaim }}{{ else }}librenms-data{{ end }}
+      tolerations:
+        - key: "node-role.kubernetes.io/control-plane"
+          operator: "Exists"
+          effect: "NoSchedule"
+        - key: "node-role.kubernetes.io/master"
+          operator: "Exists"
+          effect: "NoSchedule"
+{{- end }}

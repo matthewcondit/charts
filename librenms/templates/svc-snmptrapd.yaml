@@ -1,0 +1,21 @@
+{{- if .Values.snmptrapd.enabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: snmptrapd
+  namespace: {{ $.Release.Namespace }}
+  labels:
+    app: snmptrapd
+spec:
+  type: NodePort
+  externalTrafficPolicy: Local
+  ports:
+    - name: snmptrapd-udp
+      protocol: UDP
+      port: 162
+      targetPort: 162
+      nodePort: 32162
+  selector:
+    app: snmptrapd
+---
+{{- end }}

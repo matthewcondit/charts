@@ -165,3 +165,6 @@ rrdcached:
 syslog:
   enabled: true
 
+# Snmptrapd
+snmptrapd:
+  enabled: true
